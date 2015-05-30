@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient;
 var app = express();
 
 app.get('/', function(req, res){
-	res.send('Ola Mundo!');
+	res.send('Ola mundo 2!');
 });
 
 app.get('/things/:nome/:coisa/:local', function(req, res){
