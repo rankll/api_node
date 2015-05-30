@@ -1,23 +1,17 @@
 var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
 var routes = require('./routes'); // Routes for our application
-var cons = require('consolidate') // Templating library adapter for Express
+var cons = require('consolidate'); // Templating library adapter for Express
+var bodyParser = require('body-parser');
 
 var app = express();
 
 MongoClient.connect('mongodb://localhost:27017/rankll', function(err, db) {
     "use strict";
-    if(err) throw err;
-
-    // Register our templating engine
-    app.engine('html', cons.swig);
-    app.set('view engine', 'html');    
-
-    // Express middleware to populate 'req.cookies' so we can access cookies
-//    app.use(express.cookieParser());
-
-    // Express middleware to populate 'req.body' so we can access POST variables
-//    app.use(express.bodyParser());
+    if(err) throw err;    
+    
+    // parse application/json
+    app.use(bodyParser.json());       
 
     // Application routes
     routes(app, db);

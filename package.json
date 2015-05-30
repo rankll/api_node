@@ -6,8 +6,7 @@
   "dependencies": {
     "consolidate": "^0.13.1",
     "mongodb": "^2.0.33",
-    "express": "^4.12.4",
-    "bcrypt-nodejs": "~0.0.3"
+    "express": "^4.12.4"    
   },
   "devDependencies": {},
   "scripts": {

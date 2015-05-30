@@ -13,9 +13,7 @@ function ThingsDAO(db) {
 
     this.insertThing = function (name, description, callback) {
         "use strict";
-        console.log("inserting thing" + name + description);
-
-        // fix up the permalink to not include whitespace        
+        console.log("inserting thing" + name + description);  
 
         // Build a new post
         var post = {"name": name,

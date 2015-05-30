@@ -6,7 +6,5 @@ module.exports = exports = function(app, db) {
 
     // The main page of the blog
     app.get('/', contentHandler.displayMainPage);
-//    app.post('/', contentHandler.insertThing);
-	//app.post('/things', contentHandler.insertThing);
-	    
-}
+    app.post('/', contentHandler.handleInsertThing);		    
+};
