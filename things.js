@@ -44,7 +44,7 @@ function ThingsDAO(db) {
     this.update = function(id, name, description, callback){
         "use strict";
         
-        things.update({'_id': id}, {$set:{'description': description}}, function(err){
+        things.update({_id: id}, {$set:{description: description}}, function(err){
             if (err) return callback(err, null);    	    
             console.log("Updated a thing");
             callback(err);
