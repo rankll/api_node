@@ -1,10 +1,10 @@
-var ContentHandler = require('./content');
+var ThingsHandler = require('./content');
 
 module.exports = exports = function(app, db) {
     
-    var contentHandler = new ContentHandler(db);
-
-    // The main page of the blog
-    app.get('/', contentHandler.displayMainPage);
-    app.post('/', contentHandler.handleInsertThing);		    
+    var thingsHandler = new ThingsHandler(db);
+    
+    app.get('/', thingsHandler.handleGetThings);
+    app.post('/', thingsHandler.handleInsertThing);
+    app.put('/', thingsHandler.handleUpdateThing);		    
 };

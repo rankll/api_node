@@ -11,15 +11,13 @@ function ThingsDAO(db) {
 
     var things = db.collection("things");
 
-    this.insertThing = function (name, description, callback) {
+    this.insert = function (name, description, callback) {
         "use strict";
         console.log("inserting thing" + name + description);  
 
-        // Build a new post
-        var post = {"name": name,
-                "description": description}
+        var thing = {"name": name, "description": description};
 
-        things.insert(post, function (err, result) {
+        things.insert(thing, function (err, result) {
             "use strict";
 
             if (err) return callback(err, null);
@@ -29,7 +27,7 @@ function ThingsDAO(db) {
         });
     };
 
-    this.getThings = function(callback) {
+    this.getAll = function(callback) {
         "use strict";
 
         things.find().toArray(function(err, items) {
@@ -42,6 +40,26 @@ function ThingsDAO(db) {
             callback(err, items);
         });
     };    
+    
+    this.update = function(id, name, description, callback){
+        "use strict";
+        
+        things.update({'_id': id}, {$set:{'description': description}}, function(err){
+            if (err) return callback(err, null);    	    
+            console.log("Updated a thing");
+            callback(err);
+        });
+    };
+    
+    this.remove = function(id, callback){
+        "use strict";
+        
+        things.remove({'_id': id}, function(err){
+            if (err) return callback(err, null)
+            console.log("Thing " + _id + " removed");
+            callback(err);
+        });
+    };
 }
 
 module.exports.ThingsDAO = ThingsDAO;
