@@ -6,5 +6,6 @@ module.exports = exports = function(app, db) {
     
     app.get('/', thingsHandler.handleGetThings);
     app.post('/', thingsHandler.handleInsertThing);
-    app.put('/', thingsHandler.handleUpdateThing);		    
+    app.put('/', thingsHandler.handleUpdateThing);
+    app.delete('/', thingsHandler.handleRemoveThing);		    
 };

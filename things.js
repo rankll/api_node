@@ -46,7 +46,7 @@ function ThingsDAO(db) {
 	
         things.update({"_id":id}, {$set:{description: description}}, function(err){
             if (err) return callback(err, null);    	    
-            console.log("Updated a thing");
+            
             callback(err);
         });
     };
@@ -56,7 +56,7 @@ function ThingsDAO(db) {
         
         things.remove({'_id': id}, function(err){
             if (err) return callback(err, null)
-            console.log("Thing " + _id + " removed");
+            
             callback(err);
         });
     };
