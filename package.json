@@ -4,9 +4,9 @@
   "description": "descricao",
   "main": "app.js",
   "dependencies": {
-    "consolidate": "^0.13.1",
-    "mongodb": "^2.0.33",
-    "express": "^4.12.4"    
+    "consolidate": "*",
+    "express": "^5.0.0-alpha.1",
+    "mongodb": "^2.1.0-alpha"
   },
   "devDependencies": {},
   "scripts": {
