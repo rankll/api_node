@@ -1,4 +1,6 @@
 var ThingsDAO = require('../things').ThingsDAO
+var ObjectID = require('mongodb').ObjectID
+
 /* The ContentHandler must be constructed with a connected db */
 function ThingsHandler (db) {
     "use strict";
@@ -31,7 +33,7 @@ function ThingsHandler (db) {
     this.handleUpdateThing = function(req, res, next){
         "use strict";
         
-        var id = req.body.id;        
+        var id = ObjectID(req.body.id);        
         var name = req.body.name;
         var description = req.body.description;
         
