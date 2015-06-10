@@ -1,16 +1,16 @@
-var emailService = require('../email').emailService
+var EmailService = require('../email').EmailService;
 
 function EmailController() {
 	
-	var email = new emailService();
+	var email = new EmailService();
 	
 	this.getEmail = function(req, res, next){
 		
-		email.start(function(email){						
+		email.start(function(err, email){						
 			res.json(email);
 		});
 		
 	};	
 }
 
-module.exports = EmailController
+module.exports = EmailController;

@@ -5,28 +5,32 @@ var imap = {
   user: config.user,
   password: config.password,
   host: config.host,
-  port: config.host, // imap port
+  port: config.port, // imap port
   tls: config.tls,// use secure connection
   tlsOptions: config.tlsOption
 };
 
-//function emailService(){	   
+function EmailService(){	   
   
-  notifier(imap).on('mail',function(mail){console.log(mail);}).start();
+  //notifier(imap).on('mail',function(mail){console.log(mail);}).start( );
   
-//  this.start = function(callback){     
-//   
+  this.start = function(callback){     
+   
 //   notifier(imap).start();
 //   
-//   notifier.on("mail", function(mail){     
-//     callback(mail);         
+//   notifier.on("mail", function(err,mail){ 
+//     if (err) return callback(err, null);
+//         
+//     callback(err,mail);         
 //   });
-//   
-//     notifier(imap).on('mail',function(mail){
-//  		callback(mail)
-//  	}).start();
+   
+     notifier(imap).on('mail',function(err,mail){
+        if (err) return callback(err, null);
+        console.log(mail.text);
+  		  //callback(err, mail.text);
+  	}).start();
     
-//  };  	
-//}
+  };  	
+}
 
-//module.exports.emailService = emailService;
+module.exports.EmailService = EmailService;
