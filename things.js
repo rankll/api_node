@@ -28,7 +28,7 @@ function ThingsDAO(db) {
     };
 
     this.getAll = function(callback) {
-        "use strict";
+        "use strict a";
 
         things.find().toArray(function(err, items) {
             "use strict";
