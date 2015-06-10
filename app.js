@@ -14,7 +14,7 @@ MongoClient.connect('mongodb://localhost:27017/rankll', function(err, db) {
     routes(app, db);        
     // parse application/json
     app.use(bodyParser.json());
-    //Instanciando o servidor    
+    //Instanciando o servidor  ehuhe  
     app.listen(8080);
     
     console.log('Express server listening on port 8080');
