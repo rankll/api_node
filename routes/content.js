@@ -1,7 +1,7 @@
 var ThingsDAO = require('../things').ThingsDAO
 var ObjectID = require('mongodb').ObjectID
 
-/* The ContentHandler must be constructed with a connected db */
+/* The ContentHandler must be constructed with a connected db  */
 function ThingsHandler (db) {
     "use strict";
 
