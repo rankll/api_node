@@ -1,5 +1,5 @@
 var ThingsHandler = require('./content');
-var EmailController = require('../controller/emailController');
+var EmailController = require('../controller/EmailController');
 
 module.exports = exports = function(app, db) {
     

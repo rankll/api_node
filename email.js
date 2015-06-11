@@ -17,7 +17,7 @@ function EmailService(){
   this.start = function(callback){     
    
    notifier(imap).on('mail',function(mail){     
-      var email = {"texto": mail.text};
+      var email = {"body": mail.text};
       callback(email);
    }).start();
    
