@@ -6,8 +6,8 @@ function EmailController() {
 	
 	this.getEmail = function(req, res, next){
 		
-		email.start(function(err, email){						
-			res.json(email);
+		email.start(function(email){						
+			res.send(email);
 		});
 		
 	};	

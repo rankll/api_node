@@ -16,20 +16,11 @@ function EmailService(){
   
   this.start = function(callback){     
    
-//   notifier(imap).start();
-//   
-//   notifier.on("mail", function(err,mail){ 
-//     if (err) return callback(err, null);
-//         
-//     callback(err,mail);         
-//   });
+   notifier(imap).on('mail',function(mail){     
+      var email = {"texto": mail.text};
+      callback(email);
+   }).start();
    
-     notifier(imap).on('mail',function(err,mail){
-        if (err) return callback(err, null);
-        console.log(mail.text);
-  		  //callback(err, mail.text);
-  	}).start();
-    
   };  	
 }
 
