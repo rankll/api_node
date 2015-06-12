@@ -11,28 +11,29 @@ function ThingsDAO(db) {
 
     var things = db.collection("things");
 
-    this.insert = function (name, description, callback) {
+    this.insert = function (name, description, client, callback) {
         "use strict";
         console.log("inserting thing" + name + description);  
 
-        var thing = {"name": name, "description": description};
+        var thing = {"name": name, "description": description, "client_id": client};
 
         things.insert(thing, function (err, result) {
             "use strict";
 
-            if (err) return callback(err, null);
+            if (err) return callback(err);
 
             console.log("Inserted new thing");
             callback(err);
         });
     };
 
-    this.getAll = function(callback) {
-        "use strict a";
+    this.getAll = function(client_id, callback) {
+        "use strict a";        
 
-        things.find().toArray(function(err, items) {
-            "use strict";
-
+        var where = {"client_id": parseInt(client_id)};
+                
+        things.find(where).toArray(function(err, items) {
+            "use strict";            
             if (err) return callback(err, null);
 
             console.log("Found " + items.length + " things");
@@ -44,7 +45,7 @@ function ThingsDAO(db) {
     this.update = function(id, name, description, callback){
         "use strict";
 	
-        things.update({"_id":id}, {$set:{description: description}}, function(err){
+        things.update({"_id":id}, {$set:{name: name, description: description}}, function(err){
             if (err) return callback(err, null);    	    
             
             callback(err);

@@ -9,7 +9,9 @@ function ThingsHandler (db) {
 
     this.handleGetThings = function(req, res, next) {
         
-        things.getAll(function(err, results) {
+        var client_id = req.params.id;        
+        
+        things.getAll(client_id, function(err, results) {
             "use strict";
             if (err) return next(err);
             res.json(results);
@@ -20,9 +22,10 @@ function ThingsHandler (db) {
         "use strict";
 
         var name = req.body.name;
-        var description = req.body.description;                     
+        var description = req.body.description;
+        var client = req.body.client_id;                     
 
-        things.insert(name, description, function(err) {
+        things.insert(name, description, client, function(err) {
             "use strict";
 
             if (err) return next(err);

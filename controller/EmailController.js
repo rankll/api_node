@@ -1,5 +1,8 @@
 var EmailService = require('../email').EmailService;
 
+var CronJob = require('cron').CronJob;
+
+
 function EmailController() {
 	
 	var email = new EmailService();
@@ -10,6 +13,13 @@ function EmailController() {
 			res.send(email);
 		});
 		
+	};
+	
+	this.sendEmailCron = function(req, res, next){
+		
+		new CronJob('*/10 * * * * *', function() {
+			email.sendEmail();			
+		}, null, true, 'America/Los_Angeles');						
 	};	
 }
 
