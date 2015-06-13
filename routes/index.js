@@ -10,7 +10,7 @@ module.exports = exports = function(app, db) {
     app.post('/things', thingsHandler.handleInsertThing);
     app.put('/things', thingsHandler.handleUpdateThing);
     //app.delete('/things', thingshandler.handleremovething);	
-    app.post('/things/del', thingshandler.handleremovething);	
+    app.post('/things/del', thingsHandler.handleRemoveThing);	
     
     app.get('/email/emails', emailController.getEmail);	    
     app.get('/email/sendemailcron', emailController.sendEmailCron);
