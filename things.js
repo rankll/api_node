@@ -27,11 +27,25 @@ function ThingsDAO(db) {
         });
     };
 
+    this.getAll2 = function(callback) {
+        "use strict a";        
+                
+        things.find().toArray(function(err, items) {
+            "use strict";            
+            if (err) return callback(err, null);
+
+            console.log("Found " + items.length + " things");
+
+            callback(err, items);
+        });
+    }; 
+
 
     this.getAll = function(client_id, callback) {
         "use strict a";        
 
-        var where = {"client_id": parseInt(client_id)};
+//        var where = {"client_id": parseInt(client_id)};
+        var where = {};
                 
         things.find(where).toArray(function(err, items) {
             "use strict";            

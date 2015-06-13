@@ -17,6 +17,15 @@ function ThingsHandler (db) {
             res.json(results);
         });                
     };
+    
+    this.handleGetAll = function(req, res, next) {                                     
+        
+        things.getAll2(function(err, results) {
+            "use strict";
+            if (err) return next(err);
+            res.json(results);
+        });                
+    };
 
     this.handleInsertThing = function(req, res, next) {
         "use strict";
