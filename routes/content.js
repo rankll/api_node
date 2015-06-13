@@ -22,7 +22,8 @@ function ThingsHandler (db) {
         "use strict";
 
         var name = req.body.name;
-        var description = req.body.description;
+        var description = req.body.description;        
+        var client_id = req.body.client_id;
 
         console.log("ID: "+req.body.id);
 
@@ -45,7 +46,7 @@ function ThingsHandler (db) {
 
                 console.log("ID é NULLOOOOOO");
                 console.log("inserted");
-                things.insert(name, description, function(err) {
+                things.insert(name, description, client_id, function(err) {
                     "use strict";
 
                     if (err) return next(err);
