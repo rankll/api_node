@@ -27,7 +27,7 @@ function ThingsHandler (db) {
 
         console.log("ID: "+req.body.id);
 
-        if (req.body.id != 'null') {
+        if (req.body.id != null) {
 
                 console.log("ID NAO é NULLOOOOOO");
 

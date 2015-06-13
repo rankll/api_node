@@ -21,9 +21,8 @@ function ThingsDAO(db) {
             "use strict";
 
             if (err) return callback(err);
-
-            console.log("Inserted new thing "+result.ops[0]._id);
-            callback(err, result.ops[0]._id);
+            
+            callback(err);
 	    //callback(err);
         });
     };
