@@ -22,10 +22,12 @@ function ThingsDAO(db) {
 
             if (err) return callback(err);
 
-            console.log("Inserted new thing");
-            callback(err);
+            console.log("Inserted new thing "+result.ops[0]._id);
+            callback(err, result.ops[0]._id);
+	    //callback(err);
         });
     };
+
 
     this.getAll = function(client_id, callback) {
         "use strict a";        
