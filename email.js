@@ -26,10 +26,14 @@ function EmailService(){
    
        notifier(imap).on('mail',function(mail){     
           var email = {"body": mail.text};
-          callback(email);
+          callback(email);          
        }).start();
    
   };  
+  
+  this.stop = function(){
+      notifier(imap).stop();
+  };
   
   this.sendEmail = function(){        
     transporter.sendMail({

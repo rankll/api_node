@@ -9,8 +9,10 @@ function EmailController() {
 	
 	this.getEmail = function(req, res, next){
 		
-		email.start(function(email){						
+		email.start(function(email){
+			console.log('entrou email');						
 			res.send(email);
+			email.stop();
 		});
 		
 	};

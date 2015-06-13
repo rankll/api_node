@@ -6,7 +6,7 @@ module.exports = exports = function(app, db) {
     var thingsHandler = new ThingsHandler(db);
     var emailController = new EmailController();
        
-    app.get('/:id', thingsHandler.handleGetThings);    
+    //app.get('/:id', thingsHandler.handleGetThings);    
     app.post('/', thingsHandler.handleInsertThing);
     app.put('/', thingsHandler.handleUpdateThing);
     app.delete('/', thingsHandler.handleRemoveThing);	

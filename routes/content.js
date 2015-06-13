@@ -8,7 +8,7 @@ function ThingsHandler (db) {
     var things = new ThingsDAO(db);
 
     this.handleGetThings = function(req, res, next) {
-        
+                     
         var client_id = req.params.id;        
         
         things.getAll(client_id, function(err, results) {
