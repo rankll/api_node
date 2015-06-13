@@ -32,7 +32,7 @@ function EmailService(){
   };  
   
   this.stop = function(){
-      notifier(imap).stop();
+      notifier(imap).stop();      
   };
   
   this.sendEmail = function(){        

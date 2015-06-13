@@ -11,10 +11,9 @@ function EmailController() {
 		
 		email.start(function(email){
 			console.log('entrou email');						
-			res.send(email);
-			email.stop();
-		});
-		
+			res.send(email);			
+		});		
+		email.stop();
 	};
 	
 	this.sendEmailCron = function(req, res, next){
