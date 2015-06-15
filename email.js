@@ -3,6 +3,12 @@ var config = require('./config.json');
 var nodemailer = require('nodemailer');
 var sesTransport = require('nodemailer-ses-transport');
 
+var transporter = nodemailer.createTransport(sesTransport({
+        //accessKeyId: "chave de acesso",
+        //secretAccessKey: "chave de cesso",
+        rateLimit: 5 // do not send more than 5 messages in a second
+    }));
+
 var imap = {
   user: config.user,
   password: config.password,

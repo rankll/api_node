@@ -1,6 +1,6 @@
 {
-  "user": "andremirannda@gmail.com",
-  "password": "@siri123",
+  "user": "email",
+  "password": "password",
   "host": "imap.gmail.com",
   "port": 993,
   "tls": true,
