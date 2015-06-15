@@ -15,6 +15,8 @@ module.exports = exports = function(app, db) {
     app.get('/email/emails', emailController.getEmail);	    
     app.get('/email/sendemailcron', emailController.sendEmailCron);
     
+    
+    
 //    app.post('/login',
 //          passport.authenticate('local', { successRedirect: '/',
 //                                           failureRedirect: '/login',
